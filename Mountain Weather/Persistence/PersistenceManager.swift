@@ -17,7 +17,7 @@ class PersistenceManager {
             {
                 realm.add(item)
             }
-            try! realm.commitWrite()
+            try realm.commitWrite()
         } catch{
             throw error
         }
@@ -34,7 +34,8 @@ class PersistenceManager {
   
     func cleanPresistenced<T:Object>(model:T.Type)throws {
       
-       do{let realm = try Realm()
+       do{
+        let realm = try Realm()
        print("Delete Data")
        realm.objects(model.self).forEach({ item in
            try! realm.write {

@@ -7,7 +7,7 @@
 
 
 import SwiftUI
- 
+
 
 struct WeatherListErrorView : View {
     var error:String
@@ -28,7 +28,8 @@ struct WeatherListErrorView : View {
                   
              
                }
-            .padding(33)
+            .padding(.top,20)
+            .padding(23)
             HStack {
                 Spacer()
                 VStack(alignment:.center){

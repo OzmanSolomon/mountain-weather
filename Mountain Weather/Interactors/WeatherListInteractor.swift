@@ -12,7 +12,7 @@ import RealmSwift
 
 protocol WeatherListProtocol {
     func fetchWeather()
-    func getLocalWeather()
+    func getLocalWeather() throws
     func saveLocalWeather(list:[WeatherListModel],model:WeatherBaseModel)throws
    
 }
@@ -32,7 +32,7 @@ class WeatherListInteractor{
 
 extension WeatherListInteractor:WeatherListProtocol{
     func fetchWeather() {
-        apiManager.fetchFilms(url: url , withSuccess: { (data,error,statusCode)   in
+        apiManager.getMethod(url: url , withSuccess: { (data,error,statusCode)   in
             if let weatherBaseModel = try? self.decoder.decode(WeatherBaseModel.self, from: data!){
                 DispatchQueue.main.async {
                 self.presentr.WeatherListSuccessed(model: weatherBaseModel)
@@ -57,9 +57,9 @@ extension WeatherListInteractor:WeatherListProtocol{
         }
     }
     
-    func getLocalWeather(){
+    func getLocalWeather() throws{
          do{
-            let localData =   try   PersistenceManager().unpresistence(model:weatherLocalModel.self )
+            let localData = try PersistenceManager().unpresistence(model:weatherLocalModel.self )
             presentr.gotLocalDataSuccessfully(localData: localData)
          } catch {
             print(error)

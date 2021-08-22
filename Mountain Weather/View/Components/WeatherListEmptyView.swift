@@ -23,7 +23,8 @@ struct WeatherListEmptyView : View {
                   
              
                }
-            .padding(33)
+            .padding(.top,20)
+            .padding(23)
             HStack {
                 Spacer()
                 VStack(alignment:.center){

@@ -11,7 +11,7 @@ import SwiftUI
 struct ImageView: View {
     let imageURL: URL
     init(id:String) {
-        imageURL = URL(string:ApiManager().iconUrl(id) ?? "NA")!
+        imageURL = URL(string:ApiManager().iconUrl(id: id) ?? "NA")!
     }
     var body: some View {
         URLImage(imageURL) { image in

@@ -34,6 +34,7 @@ struct WeatherListScreen : View {
             }
             
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
         

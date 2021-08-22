@@ -12,7 +12,7 @@ struct Mountain_WeatherApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let interactor:WeatherListProtocol = WeatherListInteractor()
     init() {
-        interactor.getLocalWeather()
+       try! interactor.getLocalWeather()
         interactor.fetchWeather()
     }
     var body: some Scene {

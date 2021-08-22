@@ -11,6 +11,6 @@ protocol DetailsInteractorProtocol {
     
 }
 
-struct DetailsInteractor {
+struct DetailsInteractor:DetailsInteractorProtocol {
     
 }

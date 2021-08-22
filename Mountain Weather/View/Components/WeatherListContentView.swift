@@ -13,14 +13,17 @@ struct WeatherListContentView : View {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
-    @State private var appBarHeight:CGFloat = 3.5
+    @State private var appBarHeight : CGFloat = 3.5
     @State private var orientation = UIDeviceOrientation.unknown
     let weatherList : [WeatherVM]
     var presenter:WeatherRowPresenterProtocol
     init( weatherList : [WeatherVM]) {
          self.weatherList = weatherList
         presenter = WeatherRowPresenterPresenter()
-    }
+        if UIDevice.current.orientation.isLandscape  {
+            self.appBarHeight =  2.0
+        }
+     }
     var body: some View{
  
         ZStack(alignment: .top, content: {
@@ -41,7 +44,8 @@ struct WeatherListContentView : View {
                                       
                                  
                                    }
-                                .padding(33)
+                                .padding(.top,20)
+                                .padding(23)
                                 Spacer()
                           
                             } 
@@ -59,7 +63,8 @@ struct WeatherListContentView : View {
                                 .font(.system(size: 45))
                                 .fontWeight(.thin)
                                 .foregroundColor(.black)
-                        }}
+                        }
+                        }
                             
                                 .frame(width: UIScreen.main.bounds.width,height: g.frame(in: .global).minY > 0 ? UIScreen.main.bounds.height / appBarHeight + g.frame(in: .global).minY  : UIScreen.main.bounds.height / appBarHeight)
                             .onReceive(self.time) { (_) in
@@ -127,7 +132,9 @@ struct WeatherListContentView : View {
                     Spacer()
                     
                 }
+              
             })
+            
             
             if self.show{
                 

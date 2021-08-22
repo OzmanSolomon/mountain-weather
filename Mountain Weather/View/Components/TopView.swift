@@ -15,12 +15,9 @@ struct TopView : View {
                 
                 HStack(alignment: .top){
                     
-                    Image(systemName: "sun.dust.fill")
-                        .renderingMode(.template)
+                    Image("mountains")
                         .resizable()
                         .frame(width: 25, height: 30)
-                        // for dark mode adaption...
-                        .foregroundColor(.primary)
                     
                     Text("Mountain Weather")
                         .font(.title)
@@ -35,10 +32,10 @@ struct TopView : View {
             }
             Spacer(minLength: 0)
         }
-        // for non safe area phones padding will be 15...
         .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top == 0 ? 15 : (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 5)
-//        .padding(.horizontal)
         .padding([.leading, .bottom])
         .background(BlurBG())
     }
 }
+
+ 

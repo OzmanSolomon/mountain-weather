@@ -13,6 +13,12 @@
 		2D00601D26D1766E00EB1C47 /* DetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00601C26D1766E00EB1C47 /* DetailsRow.swift */; };
 		2D1840CD26D239BC0082A47D /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1840CC26D239BC0082A47D /* SettingPresenter.swift */; };
 		2D1840CF26D23BF70082A47D /* WeatherRowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1840CE26D23BF70082A47D /* WeatherRowPresenter.swift */; };
+		2D1840DB26D2558A0082A47D /* MountainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1840DA26D2558A0082A47D /* MountainTest.swift */; };
+		2D1840E226D286E80082A47D /* josnFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1840E126D286E80082A47D /* josnFile.json */; };
+		2D1840E326D286E80082A47D /* josnFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1840E126D286E80082A47D /* josnFile.json */; };
+		2D1840E626D289AC0082A47D /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 2D1840E526D289AC0082A47D /* Shimmer */; };
+		2D1840E826D294950082A47D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1840E726D294950082A47D /* Launch Screen.storyboard */; };
+		2D1840E926D294950082A47D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1840E726D294950082A47D /* Launch Screen.storyboard */; };
 		2D1BAEB126D0DABE00E45B3B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BAEB026D0DABE00E45B3B /* PersistenceManager.swift */; };
 		2D1BAEB526D1058E00E45B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BAEB426D1058E00E45B3B /* AppDelegate.swift */; };
 		2D1BAEB726D147DA00E45B3B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BAEB626D147DA00E45B3B /* NotificationManager.swift */; };
@@ -24,7 +30,6 @@
 		2D87820F26CE3453009D5EAA /* Mountain_WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87820E26CE3453009D5EAA /* Mountain_WeatherApp.swift */; };
 		2D87821326CE3454009D5EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D87821226CE3454009D5EAA /* Assets.xcassets */; };
 		2D87821626CE3454009D5EAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D87821526CE3454009D5EAA /* Preview Assets.xcassets */; };
-		2D87822126CE3454009D5EAA /* Mountain_WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87822026CE3454009D5EAA /* Mountain_WeatherTests.swift */; };
 		2D87824926CE3BAB009D5EAA /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87824526CE3BAB009D5EAA /* WeatherRow.swift */; };
 		2D87824B26CE3BAB009D5EAA /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87824726CE3BAB009D5EAA /* ActivityIndicatorView.swift */; };
 		2D87824F26CE3DE3009D5EAA /* WeatherListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87824E26CE3DE3009D5EAA /* WeatherListScreen.swift */; };
@@ -72,6 +77,9 @@
 		2D00601C26D1766E00EB1C47 /* DetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRow.swift; sourceTree = "<group>"; };
 		2D1840CC26D239BC0082A47D /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
 		2D1840CE26D23BF70082A47D /* WeatherRowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowPresenter.swift; sourceTree = "<group>"; };
+		2D1840DA26D2558A0082A47D /* MountainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainTest.swift; sourceTree = "<group>"; };
+		2D1840E126D286E80082A47D /* josnFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = josnFile.json; sourceTree = "<group>"; };
+		2D1840E726D294950082A47D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2D1BAEB026D0DABE00E45B3B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		2D1BAEB426D1058E00E45B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D1BAEB626D147DA00E45B3B /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -86,7 +94,6 @@
 		2D87821526CE3454009D5EAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D87821726CE3454009D5EAA /* development.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = development.plist; sourceTree = "<group>"; };
 		2D87821C26CE3454009D5EAA /* Mountain WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mountain WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D87822026CE3454009D5EAA /* Mountain_WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain_WeatherTests.swift; sourceTree = "<group>"; };
 		2D87822226CE3454009D5EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D87824526CE3BAB009D5EAA /* WeatherRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
 		2D87824726CE3BAB009D5EAA /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -116,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF2BA7326D04AC5007FFB8B /* RealmSwift in Frameworks */,
+				2D1840E626D289AC0082A47D /* Shimmer in Frameworks */,
 				2DE91D6F26CE7A9D00B709AA /* URLImage in Frameworks */,
 				2DF2BA5926CFB0EC007FFB8B /* Alamofire in Frameworks */,
 			);
@@ -171,8 +179,9 @@
 		2D87821F26CE3454009D5EAA /* Mountain WeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				2D87822026CE3454009D5EAA /* Mountain_WeatherTests.swift */,
 				2D87822226CE3454009D5EAA /* Info.plist */,
+				2D1840DA26D2558A0082A47D /* MountainTest.swift */,
+				2D1840E126D286E80082A47D /* josnFile.json */,
 			);
 			path = "Mountain WeatherTests";
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			children = (
 				2D87820E26CE3453009D5EAA /* Mountain_WeatherApp.swift */,
 				2D1BAEB426D1058E00E45B3B /* AppDelegate.swift */,
+				2D1840E726D294950082A47D /* Launch Screen.storyboard */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -316,6 +326,7 @@
 				2DE91D6E26CE7A9D00B709AA /* URLImage */,
 				2DF2BA5826CFB0EC007FFB8B /* Alamofire */,
 				2DF2BA7226D04AC5007FFB8B /* RealmSwift */,
+				2D1840E526D289AC0082A47D /* Shimmer */,
 			);
 			productName = "Mountain Weather";
 			productReference = 2D87820B26CE3453009D5EAA /* Mountain Weather.app */;
@@ -370,6 +381,7 @@
 				2DE91D6A26CE77D800B709AA /* XCRemoteSwiftPackageReference "url-image" */,
 				2DF2BA5726CFB0EC007FFB8B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2DF2BA7126D04AC5007FFB8B /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				2D1840E426D289AC0082A47D /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 2D87820C26CE3453009D5EAA /* Products */;
 			projectDirPath = "";
@@ -387,6 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D87821626CE3454009D5EAA /* Preview Assets.xcassets in Resources */,
+				2D1840E226D286E80082A47D /* josnFile.json in Resources */,
+				2D1840E826D294950082A47D /* Launch Screen.storyboard in Resources */,
 				2D87821326CE3454009D5EAA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +409,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1840E926D294950082A47D /* Launch Screen.storyboard in Resources */,
+				2D1840E326D286E80082A47D /* josnFile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D87822126CE3454009D5EAA /* Mountain_WeatherTests.swift in Sources */,
+				2D1840DB26D2558A0082A47D /* MountainTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1153,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2D1840E426D289AC0082A47D /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		2DE91D6A26CE77D800B709AA /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -1164,6 +1188,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2D1840E526D289AC0082A47D /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D1840E426D289AC0082A47D /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		2DE91D6E26CE7A9D00B709AA /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2DE91D6A26CE77D800B709AA /* XCRemoteSwiftPackageReference "url-image" */;

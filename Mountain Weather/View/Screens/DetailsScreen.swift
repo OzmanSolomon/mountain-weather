@@ -52,8 +52,7 @@ struct DetailsScreen: View {
             }
            
         }
-          .navigationViewStyle(StackNavigationViewStyle())
-          .navigationBarTitle("Details")
+           .navigationBarTitle("Details")
           .navigationBarBackButtonHidden(true)
                      .navigationBarItems(leading: btnBack)
     }

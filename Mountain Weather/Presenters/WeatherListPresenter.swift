@@ -68,6 +68,7 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
         })
         store.state = .loaded(weatherVMList)
     }
+    
     func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>){
         var myModel = [WeatherVM]()
         localData.forEach { weatherLocalModel in

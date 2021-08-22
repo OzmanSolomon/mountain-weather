@@ -10,23 +10,42 @@ import Foundation
 #if DEBUG
 
 let mockUpData:[WeatherVM] = [
-
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d"),
-//   WeatherVM(day: "Aug 23",detail: DetailsVM(temp:"32º"), image:  "11d")
+    WeatherVM(day: "NA",
+              detail: DetailsVM(
+                temp: "\(0.0)",
+                windSpeed: "\(0.0)" ,
+                windDeg: "\(0)",
+                tempMin: "\(0.0)",
+                tempMax: "\( 0.0)",
+                pressure: "\(0)",
+                howItFeel:  "NA",
+                weatherDescription:   "NA",
+                city:  "NA"),
+              image:   "NA"),
+    WeatherVM(day: "NA",
+              detail: DetailsVM(
+                temp: "\(0.0)",
+                windSpeed: "\(0.0)" ,
+                windDeg: "\(0)",
+                tempMin: "\(0.0)",
+                tempMax: "\( 0.0)",
+                pressure: "\(0)",
+                howItFeel:  "NA",
+                weatherDescription:   "NA",
+                city:  "NA"),
+              image:   "NA"),
+    WeatherVM(day: "NA",
+              detail: DetailsVM(
+                temp: "\(0.0)",
+                windSpeed: "\(0.0)" ,
+                windDeg: "\(0)",
+                tempMin: "\(0.0)",
+                tempMax: "\( 0.0)",
+                pressure: "\(0)",
+                howItFeel:  "NA",
+                weatherDescription:   "NA",
+                city:  "NA"),
+              image:   "NA")
 ]
 
 

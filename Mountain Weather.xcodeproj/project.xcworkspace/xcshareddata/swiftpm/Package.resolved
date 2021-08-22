@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "SwiftUI-Shimmer",
+        "repositoryURL": "https://github.com/markiv/SwiftUI-Shimmer",
+        "state": {
+          "branch": null,
+          "revision": "5b2e81191e77f66e6c6ca497f11a77fe48f7f0fc",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image",
         "state": {

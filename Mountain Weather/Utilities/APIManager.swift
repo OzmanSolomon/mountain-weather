@@ -17,7 +17,7 @@ class ApiManager{
         return "https://api.openweathermap.org/data/2.5/forecast?q=Dubai&mode=json&appid=\(self.apiKey)&units=metric"
     }
    
-    func iconUrl(_ id:String) -> String?{
+    func iconUrl(id:String) -> String?{
         return "http://openweathermap.org/img/wn/\(id)@2x.png"
     }
  
@@ -27,7 +27,7 @@ class ApiManager{
 
 extension ApiManager{
     
-    func fetchFilms(url:String, withSuccess success: @escaping apiSuccess, withapiFiluer failure: @escaping apiFailure) {
+    func getMethod(url:String, withSuccess success: @escaping apiSuccess, withapiFiluer failure: @escaping apiFailure) {
         AF.request(url)
             .responseData() { response in
                 switch response.result {
