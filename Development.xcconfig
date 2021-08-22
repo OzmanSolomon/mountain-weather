@@ -1,0 +1,11 @@
+//
+//  Development.xcconfig
+//  Mountain Weather
+//
+//  Created by Osman Solomon on 21/08/2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+apiKey = 3bdd4bb0592c7314f5eb78bf4a92f3be
