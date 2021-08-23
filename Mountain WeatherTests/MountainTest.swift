@@ -19,6 +19,8 @@ class MountainTest: XCTestCase {
     var settingInteractor: SettingsInteractorProtocol!
     var detailScreenPresenter: DetailScreenPresenterProtocol!
     var detailsInteractor: DetailsInteractorProtocol!
+    var store:AppState!
+    
     override func setUpWithError() throws {
         persistenceManager = PersistenceManager()
         environmentManager = EnvironmentManager()
@@ -29,8 +31,9 @@ class MountainTest: XCTestCase {
         detailScreenPresenter = DetailScreenPresenter()
         detailsInteractor = DetailsInteractor()
         apiManager = ApiManager()
+        store = AppState.shared
     }
-
+    
     override func tearDownWithError() throws {
         persistenceManager = nil
         environmentManager = nil
@@ -41,10 +44,31 @@ class MountainTest: XCTestCase {
         settingPresenter = nil
         detailScreenPresenter = nil
         detailsInteractor = nil
+        store = AppState()
     }
- 
+    
+    func test_interactor(){
+        let expectation = self.expectation(description: "interactor")
+        XCTAssertNotNil(store.state)
+        weatherListInteractor.fetchWeather{
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout:9, handler: nil)
+        XCTAssertNotEqual(store.state,  WeatherStateEnum.loading)
+      
+    }
+    
+    func test_Presenter_faild(){
+        store.state = .idle
+        weatherListPresenter.WeatherListFaild(error: "error")
+        XCTAssertEqual(store.state,  WeatherStateEnum.failed("error"))
+    }
+    
     func test_temp() {
-       XCTAssertNotNil(weatherListPresenter.temp(temp: "21"))
+        store.unit = 0
+        XCTAssertNotNil(weatherListPresenter.temp(temp: "21"))
+        store.unit = 1
+        XCTAssertNotNil(weatherListPresenter.temp(temp: "21"))
     }
     
     func test_save_local_weather() throws{
@@ -52,7 +76,7 @@ class MountainTest: XCTestCase {
         let model = WeatherBaseModel(cod: nil, message: nil, cnt: nil, list: nil, city:nil )
         XCTAssertNoThrow(try weatherListInteractor.saveLocalWeather(list: list, model: model))
     }
-
+    
     func test_get_local_weather() throws{
         XCTAssertNoThrow(try weatherListInteractor.getLocalWeather())
     }
@@ -68,6 +92,15 @@ class MountainTest: XCTestCase {
     
     func test_clean_presistence() throws {
         XCTAssertNoThrow(try persistenceManager.cleanPresistenced(model: weatherLocalModel.self))
+    }
+    
+    func test_get_local_data(){
+        let expectation = self.expectation(description: "get_local_data")
+        store.state = .idle
+        let localData = try! PersistenceManager().unpresistence(model:weatherLocalModel.self )
+        weatherListPresenter.gotLocalDataSuccessfully(localData:localData, action: {  expectation.fulfill()})
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNotEqual(store.state, WeatherStateEnum.idle)
     }
     
     func test_url(){
@@ -115,28 +148,22 @@ class MountainTest: XCTestCase {
     }
     
     func testSearchResponse() throws {
-  
         guard let path = Bundle.main.path(forResource: "josnFile", ofType: "json") else { return }
-
         let url = URL(fileURLWithPath: path)
-
+        
         do {
-
             let data = try Data(contentsOf: url)
-
             let response = try JSONDecoder().decode(WeatherBaseModel.self, from: data)
             XCTAssertEqual(response.city?.name, "Dubai")
             XCTAssertEqual(response.cod, "200")
             XCTAssertEqual(response.message, 0)
             XCTAssertEqual(response.list?.count, 40)
-
             let repo = response.list?.first
             XCTAssertEqual(repo?.wind?.speed,3.31)
-
         } catch {
-
             print(error)
         }
-         
-       }
+    }
+    
+    
 }

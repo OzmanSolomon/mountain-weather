@@ -8,11 +8,12 @@
 import SwiftUI
 import Combine
 
-enum WeatherStateEnum {
+enum WeatherStateEnum:Equatable {
     case idle
     case loading
     case failed(String)
     case loaded([WeatherVM])
+    
 }
 
 class AppState: ObservableObject{
@@ -32,6 +33,7 @@ class AppState: ObservableObject{
     func saveIsNotificationsOn(){
         UserDefaults.standard.set(self.isNotificationsOn, forKey: "isNotificationsOn")
     }
+    
     func switchUnit(to unit:Int) {
         self.unit = unit
         UserDefaults.standard.set(self.unit, forKey: "unit")

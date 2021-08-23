@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 protocol WeatherListPresenterProtocol {
-    func WeatherListSuccessed(model:WeatherBaseModel)
+    func WeatherListSuccessed(model:WeatherBaseModel,action: ()-> Void) 
     func WeatherListFaild(error:String)
-    func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>)
+    func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>, action:() -> Void)
     func temp(temp:String) ->String
 }
 
@@ -47,7 +47,7 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
         }
     }
     
-    func WeatherListSuccessed(model:WeatherBaseModel) {
+    func WeatherListSuccessed(model:WeatherBaseModel,action: ()-> Void) {
         weatherBaseModel = model.list
         weatherBaseModel?.forEach({ item in
             weatherVMList.append(
@@ -55,9 +55,10 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
             )
         })
         store.state = .loaded(weatherVMList)
+        action()
     }
     
-    func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>){
+    func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>, action:() -> Void){
         var myModel = [WeatherVM]()
         localData.forEach { weatherLocalModel in
             var baseModel:WeatherBaseModel
@@ -67,7 +68,10 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
         }
         if myModel.count > 0 {
             store.state = .loaded(myModel)
+        } else {
+            store.state = .loading
         }
+        action()
     }
 }
 

@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct WeatherVM : Identifiable {
+struct WeatherVM : Identifiable,Equatable {
+    static func == (lhs: WeatherVM, rhs: WeatherVM) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     var id = UUID()
     var day: String
     var detail:DetailsVM

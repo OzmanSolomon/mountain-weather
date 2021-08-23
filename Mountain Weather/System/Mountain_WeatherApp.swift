@@ -13,7 +13,9 @@ struct Mountain_WeatherApp: App {
     let interactor:WeatherListProtocol = WeatherListInteractor()
     init() {
        try! interactor.getLocalWeather()
-        interactor.fetchWeather()
+        interactor.fetchWeather{
+            print("finished")
+        }
     }
     var body: some Scene {
         WindowGroup {

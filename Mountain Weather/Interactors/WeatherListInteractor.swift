@@ -11,7 +11,7 @@ import Alamofire
 import RealmSwift
 
 protocol WeatherListProtocol {
-    func fetchWeather()
+    func fetchWeather(action: @escaping () -> Void)
     func getLocalWeather() throws
     func saveLocalWeather(list:[WeatherListModel],model:WeatherBaseModel)throws
     
@@ -31,11 +31,13 @@ class WeatherListInteractor{
 }
 
 extension WeatherListInteractor:WeatherListProtocol{
-    func fetchWeather() {
+    func fetchWeather(action: @escaping () -> Void) {
         apiManager.getMethod(url: url , withSuccess: { (data,error,statusCode)   in
             if let weatherBaseModel = try? self.decoder.decode(WeatherBaseModel.self, from: data!){
                 DispatchQueue.main.async {
-                    self.presentr.WeatherListSuccessed(model: weatherBaseModel)
+                    self.presentr.WeatherListSuccessed(model: weatherBaseModel, action: {
+                        action()
+                    })
                 }
                 do {
                     if let list  = weatherBaseModel.list {
@@ -55,12 +57,13 @@ extension WeatherListInteractor:WeatherListProtocol{
                 self.presentr.WeatherListFaild(error: error.localizedDescription)
             }
         }
+      
     }
     
     func getLocalWeather() throws{
         do{
             let localData = try PersistenceManager().unpresistence(model:weatherLocalModel.self )
-            presentr.gotLocalDataSuccessfully(localData: localData)
+            presentr.gotLocalDataSuccessfully(localData: localData, action: {})
         } catch {
             print(error)
         }
