@@ -12,33 +12,31 @@ struct WeatherListScreen : View {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
+    
     var body: some View{
         NavigationView{
             switch store.state {
             case .loaded(let weatherList):
                 WeatherListContentView(weatherList: weatherList)
                     .background(Color.white)
-                     .navigationBarHidden(true)
+                    .navigationBarHidden(true)
             case .failed(let error):
                 WeatherListErrorView(error: error)
-                     .navigationBarHidden(true)
+                    .navigationBarHidden(true)
                     .background(Color.white)
-             case .loading:
+            case .loading:
                 WeatherListLoadingView()
-                     .navigationBarHidden(true)
+                    .navigationBarHidden(true)
                     .background(Color.white)
-             case .idle:
+            case .idle:
                 WeatherListErrorView(error: "NA")
-                     .navigationBarHidden(true)
+                    .navigationBarHidden(true)
                     .background(Color.white)
             }
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
-        
-       
     }
     
 }

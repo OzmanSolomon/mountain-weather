@@ -8,15 +8,15 @@
 import Foundation
 
 struct DetailsVM  {
-    let temp  : String
-    let windSpeed  : String
-    let windDeg   : String
-    let tempMin  : String
-    let tempMax  : String
-    let pressure  : String
-    let howItFeel  : String
-    let weatherDescription  : String
-    let city  : String
+    var temp  : String
+    var windSpeed  : String
+    var windDeg   : String
+    var tempMin  : String
+    var tempMax  : String
+    var pressure  : String
+    var howItFeel  : String
+    var weatherDescription  : String
+    var city  : String
     
     init(item:WeatherListModel,model:WeatherBaseModel) {
         temp = "\(item.main?.temp ?? 0.0)"

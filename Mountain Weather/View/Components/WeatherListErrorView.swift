@@ -14,20 +14,18 @@ struct WeatherListErrorView : View {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
-     init(error:String) {
+    
+    init(error:String) {
         self.error = error
     }
+    
     var body: some View{
-        
         VStack(alignment: .leading) {
             NavigationLink(destination: SettingsScreen()) {
-             
                 Image(systemName: "gear")
-                       .aspectRatio(contentMode: .fit)
-                       .foregroundColor(.black)
-                  
-             
-               }
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.black)
+            }
             .padding(.top,20)
             .padding(23)
             HStack {
@@ -41,7 +39,7 @@ struct WeatherListErrorView : View {
                         .padding()
                     Text(error)
                         .font(.title)
-                        
+                    
                     Spacer()
                 }
                 Spacer()
@@ -49,9 +47,7 @@ struct WeatherListErrorView : View {
             .padding()
         }
         .ignoresSafeArea( edges: .top)
-         
-        
-}
+    }
     
 }
 

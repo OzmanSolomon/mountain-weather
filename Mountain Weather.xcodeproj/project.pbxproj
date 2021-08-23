@@ -27,6 +27,8 @@
 		2D1EBA9F26CED7790032028C /* BlurBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EBA9E26CED7790032028C /* BlurBG.swift */; };
 		2D71A22726CF9C9B007B0E07 /* WeatherListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71A22626CF9C9B007B0E07 /* WeatherListInteractor.swift */; };
 		2D71A23026CFAE90007B0E07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71A22F26CFAE90007B0E07 /* APIManager.swift */; };
+		2D788A3426D3C742008128C5 /* AnimatedTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D788A3326D3C742008128C5 /* AnimatedTopView.swift */; };
+		2D788A3626D3D177008128C5 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D788A3526D3D177008128C5 /* CustomBackButton.swift */; };
 		2D87820F26CE3453009D5EAA /* Mountain_WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87820E26CE3453009D5EAA /* Mountain_WeatherApp.swift */; };
 		2D87821326CE3454009D5EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D87821226CE3454009D5EAA /* Assets.xcassets */; };
 		2D87821626CE3454009D5EAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D87821526CE3454009D5EAA /* Preview Assets.xcassets */; };
@@ -88,6 +90,8 @@
 		2D1EBA9E26CED7790032028C /* BlurBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBG.swift; sourceTree = "<group>"; };
 		2D71A22626CF9C9B007B0E07 /* WeatherListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListInteractor.swift; sourceTree = "<group>"; };
 		2D71A22F26CFAE90007B0E07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2D788A3326D3C742008128C5 /* AnimatedTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTopView.swift; sourceTree = "<group>"; };
+		2D788A3526D3D177008128C5 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		2D87820B26CE3453009D5EAA /* Mountain Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mountain Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D87820E26CE3453009D5EAA /* Mountain_WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain_WeatherApp.swift; sourceTree = "<group>"; };
 		2D87821226CE3454009D5EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -263,9 +267,10 @@
 		2D87824426CE3BAB009D5EAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				2D87824726CE3BAB009D5EAA /* ActivityIndicatorView.swift */,
 				2DE91D6B26CE785700B709AA /* ImageView.swift */,
 				2DE91D7026CE7F4500B709AA /* UnitRow.swift */,
+				2D87824726CE3BAB009D5EAA /* ActivityIndicatorView.swift */,
+				2D788A3326D3C742008128C5 /* AnimatedTopView.swift */,
 				2D1EBA9C26CED7250032028C /* TopView.swift */,
 				2D1EBA9E26CED7790032028C /* BlurBG.swift */,
 				2D87824526CE3BAB009D5EAA /* WeatherRow.swift */,
@@ -274,6 +279,7 @@
 				2DF2BA6626CFDB0A007FFB8B /* WeatherListErrorView.swift */,
 				2DF2BA6A26CFDCBD007FFB8B /* WeatherListLoadingView.swift */,
 				2D00601C26D1766E00EB1C47 /* DetailsRow.swift */,
+				2D788A3526D3D177008128C5 /* CustomBackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,6 +440,8 @@
 				2DE91D6626CE645100B709AA /* DetailsScreen.swift in Sources */,
 				2DF2BA6926CFDB29007FFB8B /* Extentions.swift in Sources */,
 				2D87820F26CE3453009D5EAA /* Mountain_WeatherApp.swift in Sources */,
+				2D788A3426D3C742008128C5 /* AnimatedTopView.swift in Sources */,
+				2D788A3626D3D177008128C5 /* CustomBackButton.swift in Sources */,
 				2DF2BA5B26CFBCB1007FFB8B /* DetailsInteractor.swift in Sources */,
 				2D00601926D15A2400EB1C47 /* DeatailsLocalVM.swift in Sources */,
 				2D87824926CE3BAB009D5EAA /* WeatherRow.swift in Sources */,

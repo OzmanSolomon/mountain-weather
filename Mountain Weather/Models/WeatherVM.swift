@@ -9,9 +9,9 @@ import Foundation
 
 struct WeatherVM : Identifiable {
     var id = UUID()
-    let day: String
-    let detail:DetailsVM
-    let image: String
+    var day: String
+    var detail:DetailsVM
+    var image: String
     
     init(item:WeatherListModel,model:WeatherBaseModel) {
         self.day = item.dtTxt?.formatDate()  ?? "NA"

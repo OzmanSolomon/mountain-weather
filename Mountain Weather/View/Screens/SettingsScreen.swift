@@ -6,47 +6,36 @@
 //
 
 import SwiftUI
- 
+
 struct SettingsScreen: View {
-    @StateObject var store = AppState.shared
     @Environment(\.presentationMode) var presentationMode
+    @StateObject var store = AppState.shared
     private var interactor:SettingsInteractorProtocol
+    
     init(interactor:SettingsInteractorProtocol = SettingsInteractor()) {
         self.interactor = interactor
     }
-     private var btnBack : some View {
-        Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-       }) {
-           HStack {
-            Image(systemName: "chevron.backward")
-                   .aspectRatio(contentMode: .fit)
-                   .foregroundColor(.black)
-              Text("Back")
-           }
-           }
-    .buttonStyle(PlainButtonStyle())
-       }
+    
     var body: some View {
-          List {
+        List {
             Section() {
                 UnitRow()
                     .buttonStyle(BorderlessButtonStyle())
                 Toggle("Local Notifications", isOn: $store.isNotificationsOn)
-                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
                     .onChange(of: $store.isNotificationsOn.wrappedValue, perform: { value in
-                      store.saveIsNotificationsOn()
+                        store.saveIsNotificationsOn()
                         if value == true {
                             LocalNotificationManager().switchNotification(title:"title",subtitle:"subtitle")
                         }
                     })
             }
         }
-     
-          .navigationBarBackButtonHidden(true)
-          .navigationViewStyle(StackNavigationViewStyle())
-          .navigationBarTitle("Settings")
-          .navigationBarItems(leading: btnBack)
+        
+        .navigationBarBackButtonHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarTitle("Settings")
+        .navigationBarItems(leading: CustomBackButton(presentationMode: presentationMode))
     }
     
 }

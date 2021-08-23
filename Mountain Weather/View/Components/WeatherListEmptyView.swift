@@ -7,22 +7,19 @@
 
 
 import SwiftUI
- 
+
 
 struct WeatherListEmptyView : View {
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
-  
+    
     var body: some View{
         VStack(alignment: .leading) {
             NavigationLink(destination: SettingsScreen()) {
-             
                 Image(systemName: "gear")
-                       .aspectRatio(contentMode: .fit)
-                       .foregroundColor(.black)
-                  
-             
-               }
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.black)
+            }
             .padding(.top,20)
             .padding(23)
             HStack {
@@ -36,7 +33,7 @@ struct WeatherListEmptyView : View {
                         .padding()
                     Text("No Data To Show")
                         .font(.title)
-                        
+                    
                     Spacer()
                 }
                 Spacer()
