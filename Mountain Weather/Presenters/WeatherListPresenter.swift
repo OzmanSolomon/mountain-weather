@@ -65,7 +65,9 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
             (baseModel,listBaseModel) = weatherLocalModel.convertToBaseModel()    
             myModel.append(WeatherVM(item: listBaseModel, model: baseModel))
         }
-        store.state = .loaded(myModel)
+        if myModel.count > 0 {
+            store.state = .loaded(myModel)
+        }
     }
 }
 
