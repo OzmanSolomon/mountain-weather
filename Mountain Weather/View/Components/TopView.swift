@@ -17,7 +17,7 @@ struct TopView : View {
                     
                     Image("mountains")
                         .resizable()
-                        .frame(width: 25, height: 30)
+                        .frame(width: 30, height: 30)
                     
                     Text("Mountain Weather")
                         .font(.title)
