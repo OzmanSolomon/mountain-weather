@@ -21,6 +21,4 @@ class WeatherRowPresenterPresenter:WeatherRowPresenterProtocol{
             return     "\(temp)".changeCentigradeToFahrenheit() + " Fº"
         }
     }
-
-    
 }

@@ -13,4 +13,10 @@ struct WeatherVM : Identifiable {
     let detail:DetailsVM
     let image: String
     
+    init(item:WeatherListModel,model:WeatherBaseModel) {
+        self.day = item.dtTxt?.formatDate()  ?? "NA"
+        detail =  DetailsVM(item: item,model: model)
+        self.image = item.weather?.first?.icon ?? "NA"     
+    }
 }
+

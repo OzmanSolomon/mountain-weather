@@ -31,7 +31,7 @@ extension WeatherListPresenter{
         if store.unit == 0 {
             return "\(temp) Cº"
         } else {
-            return     "\(temp)".changeCentigradeToFahrenheit() + " Fº"
+            return "\(temp)".changeCentigradeToFahrenheit() + " Fº"
         }
     }
 
@@ -45,25 +45,13 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
         default:
             break
         }
-        
     }
     
     func WeatherListSuccessed(model:WeatherBaseModel) {
         weatherBaseModel = model.list
         weatherBaseModel?.forEach({ item in
             weatherVMList.append(
-                WeatherVM(day:item.dtTxt?.formatDate()  ?? "NA",
-                          detail: DetailsVM(
-                            temp: "\(item.main?.temp ?? 0.0)",
-                            windSpeed: "\(item.wind?.speed ?? 0.0)" ,
-                            windDeg: "\(item.wind?.deg ?? 0)",
-                            tempMin: "\(item.main?.tempMin ?? 0.0)",
-                            tempMax: "\(item.main?.tempMax ?? 0.0)",
-                            pressure: "\(item.main?.pressure ?? 0)",
-                            howItFeel: item.weather?.first?.main?.rawValue ?? "NA",
-                            weatherDescription: item.weather?.first?.weatherDescription?.rawValue ?? "NA",
-                            city: model.city?.name ?? "NA"),
-                          image: item.weather?.first?.icon ?? "NA")
+                WeatherVM(item: item, model: model)
             )
         })
         store.state = .loaded(weatherVMList)
@@ -72,19 +60,10 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
     func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>){
         var myModel = [WeatherVM]()
         localData.forEach { weatherLocalModel in
-            myModel.append(WeatherVM(
-                            day: weatherLocalModel.day ?? "NA",
-                            detail: DetailsVM(
-                                temp:  weatherLocalModel.detail?.temp ?? "NA",
-                                windSpeed: weatherLocalModel.detail?.windSpeed ?? "NA",
-                                windDeg: weatherLocalModel.detail?.windDeg ?? "NA",
-                                tempMin: weatherLocalModel.detail?.tempMin ?? "NA",
-                                tempMax: weatherLocalModel.detail?.tempMax ?? "NA",
-                                pressure: weatherLocalModel.detail?.pressure ?? "NA",
-                                howItFeel: weatherLocalModel.detail?.howItFeel ?? "NA",
-                                weatherDescription: weatherLocalModel.detail?.description ?? "NA",
-                                city: weatherLocalModel.detail?.city ?? "NA"),
-                            image: weatherLocalModel.image ?? "NA"))
+            var baseModel:WeatherBaseModel
+            var listBaseModel:WeatherListModel
+            (baseModel,listBaseModel) = weatherLocalModel.convertToBaseModel()    
+            myModel.append(WeatherVM(item: listBaseModel, model: baseModel))
         }
         store.state = .loaded(myModel)
     }

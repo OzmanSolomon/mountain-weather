@@ -5,7 +5,7 @@
 //  Created by Osman Solomon on 20/08/2021.
 //
 
- 
+
 import Foundation
 import Alamofire
 import RealmSwift
@@ -14,7 +14,7 @@ protocol WeatherListProtocol {
     func fetchWeather()
     func getLocalWeather() throws
     func saveLocalWeather(list:[WeatherListModel],model:WeatherBaseModel)throws
-   
+    
 }
 
 class WeatherListInteractor{
@@ -35,33 +35,33 @@ extension WeatherListInteractor:WeatherListProtocol{
         apiManager.getMethod(url: url , withSuccess: { (data,error,statusCode)   in
             if let weatherBaseModel = try? self.decoder.decode(WeatherBaseModel.self, from: data!){
                 DispatchQueue.main.async {
-                self.presentr.WeatherListSuccessed(model: weatherBaseModel)
-            }
-                do {
-                if let list  = weatherBaseModel.list {
-                    try  self.saveLocalWeather(list: list, model: weatherBaseModel)
+                    self.presentr.WeatherListSuccessed(model: weatherBaseModel)
                 }
+                do {
+                    if let list  = weatherBaseModel.list {
+                        try  self.saveLocalWeather(list: list, model: weatherBaseModel)
+                    }
                 } catch {
                     
                 }
             } else {
                 DispatchQueue.main.async {
-                self.presentr.WeatherListFaild(error: "NA")
+                    self.presentr.WeatherListFaild(error: "NA")
                 }
             }
         })
         { (error) in
             DispatchQueue.main.async {
-            self.presentr.WeatherListFaild(error: error.localizedDescription)
-       }
+                self.presentr.WeatherListFaild(error: error.localizedDescription)
+            }
         }
     }
     
     func getLocalWeather() throws{
-         do{
+        do{
             let localData = try PersistenceManager().unpresistence(model:weatherLocalModel.self )
             presentr.gotLocalDataSuccessfully(localData: localData)
-         } catch {
+        } catch {
             print(error)
         }
     }
@@ -72,30 +72,13 @@ extension WeatherListInteractor:WeatherListProtocol{
             try   PersistenceManager().cleanPresistenced(model: weatherLocalModel.self)
             
             list.forEach { item in
-                let localItem = weatherLocalModel()
-                let detailsLocalModel = DetailsLocalModel()
-                
-                localItem.day = item.dtTxt?.formatDate()  ?? "NA"
-                localItem.image =  item.weather?.first?.icon ?? "NA"
-                detailsLocalModel.temp = "\(item.main?.temp ?? 0.0)"
-                detailsLocalModel.windSpeed = "\(item.wind?.speed ?? 0.0)"
-                detailsLocalModel.windDeg = "\(item.wind?.deg ?? 0)"
-                detailsLocalModel.tempMin = "\(item.main?.tempMin ?? 0.0)"
-                detailsLocalModel.tempMax = "\(item.main?.tempMax ?? 0.0)"
-                detailsLocalModel.pressure = "\(item.main?.pressure ?? 0)"
-                detailsLocalModel.howItFeel = item.weather?.first?.main?.rawValue ?? "NA"
-                detailsLocalModel.weatherDescription = item.weather?.first?.weatherDescription?.rawValue
-                detailsLocalModel.city = model.city?.name ?? "NA"
-                
-                localItem.detail = detailsLocalModel
+                let localItem = weatherLocalModel(item: item, model: model)
                 myModel.append(localItem)
             }
-           
+            
             try   PersistenceManager().presistence(model: myModel)
         } catch {
             throw error
         }
     }
-    
-  
 }
