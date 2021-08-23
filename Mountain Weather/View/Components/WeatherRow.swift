@@ -12,8 +12,8 @@ struct WeatherRow : View {
     
     var weatherVM : WeatherVM
     var presenter:WeatherRowPresenterProtocol
-    init(weatherVM:WeatherVM) {
-        presenter = WeatherRowPresenterPresenter()
+    init(weatherVM:WeatherVM,presenter:WeatherRowPresenterProtocol = WeatherRowPresenterPresenter()) {
+        self.presenter = presenter
         self.weatherVM = weatherVM
     }
     var body: some View{

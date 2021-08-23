@@ -17,9 +17,9 @@ struct WeatherListContentView : View {
     @State private var orientation = UIDeviceOrientation.unknown
     let weatherList : [WeatherVM]
     var presenter:WeatherRowPresenterProtocol
-    init( weatherList : [WeatherVM]) {
+    init( weatherList : [WeatherVM], presenter:WeatherRowPresenterProtocol = WeatherRowPresenterPresenter() ) {
          self.weatherList = weatherList
-        presenter = WeatherRowPresenterPresenter()
+        self.presenter = presenter
         if UIDevice.current.orientation.isLandscape  {
             self.appBarHeight =  2.0
         }

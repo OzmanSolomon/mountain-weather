@@ -23,8 +23,8 @@ class WeatherListInteractor{
     private var data:Data?
     private let decoder = JSONDecoder()
     private let presentr : WeatherListPresenterProtocol
-    init() {
-        presentr = WeatherListPresenter()
+    init(presentr:WeatherListPresenterProtocol = WeatherListPresenter()) {
+        self.presentr = presentr
         url = apiManager.baseUrl()
     }
     
@@ -74,6 +74,7 @@ extension WeatherListInteractor:WeatherListProtocol{
             list.forEach { item in
                 let localItem = weatherLocalModel()
                 let detailsLocalModel = DetailsLocalModel()
+                
                 localItem.day = item.dtTxt?.formatDate()  ?? "NA"
                 localItem.image =  item.weather?.first?.icon ?? "NA"
                 detailsLocalModel.temp = "\(item.main?.temp ?? 0.0)"

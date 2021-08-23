@@ -11,8 +11,8 @@ struct SettingsScreen: View {
     @StateObject var store = AppState.shared
     @Environment(\.presentationMode) var presentationMode
     private var interactor:SettingsInteractorProtocol
-    init() {
-        interactor = SettingsInteractor()
+    init(interactor:SettingsInteractorProtocol = SettingsInteractor()) {
+        self.interactor = interactor
     }
      private var btnBack : some View {
         Button(action: {
