@@ -8,11 +8,16 @@
 import Foundation
 import Alamofire
 
+protocol ApiManagerProtocol {
+    func getMethod(url:String, withSuccess success: @escaping apiSuccess, withapiFiluer failure: @escaping apiFailure)
+}
+
 typealias apiSuccess = (_ data: Data?,_ errorString: String?,_ statusCode:Int?) -> ()
 typealias apiFailure = (_ errorString: Error) -> ()
+
 class ApiManager{
-   
     let apiKey = EnvironmentManager().configuration(PlistKey.apiKey)
+    
     func baseUrl() ->String {
         return "https://api.openweathermap.org/data/2.5/forecast?q=Dubai&mode=json&appid=\(self.apiKey)&units=metric"
     }
@@ -20,12 +25,11 @@ class ApiManager{
     func iconUrl(id:String) -> String?{
         return "http://openweathermap.org/img/wn/\(id)@2x.png"
     }
- 
-    
+     
 }
  
 
-extension ApiManager{
+extension ApiManager:ApiManagerProtocol{
     
     func getMethod(url:String, withSuccess success: @escaping apiSuccess, withapiFiluer failure: @escaping apiFailure) {
         AF.request(url)
@@ -35,8 +39,8 @@ extension ApiManager{
                     success(value, response.error?.localizedDescription, response.response?.statusCode)
                  case .failure(let error):
                     failure(error)
-                  
                 }
             }
       }
+    
 }
