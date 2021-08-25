@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CustomBackButton: View {
-    
     var presentationMode:Binding<PresentationMode>
+    
     init(presentationMode:    Binding<PresentationMode>) {
         self.presentationMode = presentationMode
     }
+    
     var body: some View {
-        
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         })

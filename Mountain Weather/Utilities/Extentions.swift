@@ -46,6 +46,7 @@ extension String{
         return "\(((temp! * 9/5) + 32).roundedDecimal(to: 2))"
     }
 }
+
 extension Double {
   func roundedDecimal(to scale: Int = 0, mode: NSDecimalNumber.RoundingMode = .plain) -> Decimal {
         var decimalValue = Decimal(self)
@@ -54,6 +55,7 @@ extension Double {
         return result
     }
 }
+
 extension String{
     func formatDate()->String{
         let dateFormatterGet = DateFormatter()

@@ -13,7 +13,6 @@ enum WeatherStateEnum:Equatable {
     case loading
     case failed(String)
     case loaded([WeatherVM])
-    
 }
 
 class AppState: ObservableObject{

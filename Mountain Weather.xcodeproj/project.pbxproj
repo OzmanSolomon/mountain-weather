@@ -322,6 +322,7 @@
 				2D87820726CE3453009D5EAA /* Sources */,
 				2D87820826CE3453009D5EAA /* Frameworks */,
 				2D87820926CE3453009D5EAA /* Resources */,
+				2D1CA08B26D5406200778528 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -421,6 +422,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D1CA08B26D5406200778528 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2D87820726CE3453009D5EAA /* Sources */ = {
@@ -1130,7 +1151,7 @@
 				2D00600626D14D4400EB1C47 /* Release (production) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (development)";
+			defaultConfigurationName = "Debug (development)";
 		};
 		2D87823026CE3454009D5EAA /* Build configuration list for PBXNativeTarget "Mountain Weather" */ = {
 			isa = XCConfigurationList;
@@ -1143,7 +1164,7 @@
 				2D00600726D14D4400EB1C47 /* Release (production) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (development)";
+			defaultConfigurationName = "Debug (development)";
 		};
 		2D87823326CE3454009D5EAA /* Build configuration list for PBXNativeTarget "Mountain WeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -1156,7 +1177,7 @@
 				2D00600826D14D4400EB1C47 /* Release (production) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (development)";
+			defaultConfigurationName = "Debug (development)";
 		};
 /* End XCConfigurationList section */
 

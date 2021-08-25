@@ -14,6 +14,7 @@ struct DetailsScreen: View {
     
     var body: some View {
         List {
+            #warning("move condition to presenter")
             Section(header: Text("Temperature")) {
                 if store.unit == 0 {
                     SettingRow(title: "temp", value:"\(self.model.temp) Cº")

@@ -60,6 +60,7 @@ extension WeatherListPresenter:WeatherListPresenterProtocol{
     
     func gotLocalDataSuccessfully(localData:Results<weatherLocalModel>, action:() -> Void){
         var myModel = [WeatherVM]()
+        
         localData.forEach { weatherLocalModel in
             var baseModel:WeatherBaseModel
             var listBaseModel:WeatherListModel

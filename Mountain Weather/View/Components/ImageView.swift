@@ -12,6 +12,7 @@ struct ImageView: View {
     let imageURL: URL
     
     init(id:String) {
+        #warning("move url to presenter")
         imageURL = URL(string:ApiManager().iconUrl(id: id) ?? "NA")!
     }
     

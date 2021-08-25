@@ -14,6 +14,7 @@ protocol WeatherRowPresenterProtocol {
 
 class WeatherRowPresenterPresenter:WeatherRowPresenterProtocol{
     private let store = AppState.shared
+    
     func temp(temp:String) ->String{
         if store.unit == 0 {
             return "\(temp) Cº"
@@ -21,4 +22,5 @@ class WeatherRowPresenterPresenter:WeatherRowPresenterProtocol{
             return     "\(temp)".changeCentigradeToFahrenheit() + " Fº"
         }
     }
+    
 }

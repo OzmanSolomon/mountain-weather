@@ -48,7 +48,7 @@ extension WeatherListLoadingView{
         AnyView(
             VStack{
                 Spacer(minLength: 100)
-                
+                #warning("make the three view as view refrences")
                 HStack(alignment: .top){
                     Text("")
                         .fontWeight(.bold)

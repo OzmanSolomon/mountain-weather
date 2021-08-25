@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct WeatherRow : View {
     var weatherVM : WeatherVM
     var presenter:WeatherRowPresenterProtocol

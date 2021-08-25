@@ -12,6 +12,7 @@ struct Mountain_WeatherApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let interactor:WeatherListProtocol = WeatherListInteractor()
     init() {
+        #warning("add function to handle try")
        try! interactor.getLocalWeather()
         interactor.fetchWeather{
             print("finished")

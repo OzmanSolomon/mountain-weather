@@ -27,7 +27,7 @@ func mockUpData()->[WeatherVM] {
     element.image = "01"
     element.detail = elementDetail
     
-    return [element]
+    return [element,element,element]
 }
 
 

@@ -24,6 +24,7 @@ struct SettingsScreen: View {
                 Toggle("Local Notifications", isOn: $store.isNotificationsOn)
                     .toggleStyle(SwitchToggleStyle(tint: .blue))
                     .onChange(of: $store.isNotificationsOn.wrappedValue, perform: { value in
+                        #warning("move code below to indicator")
                         store.saveIsNotificationsOn()
                         if value == true {
                             LocalNotificationManager().switchNotification(title:"title",subtitle:"subtitle")
